@@ -21,7 +21,11 @@ public class CarnivoreFish extends Fish {
                 getSex() + super.toString() + "of race "+race.toString();
     }
 
-
+    public Fish createChild(Fish mate){
+        Fish child = null;
+        //TODO Implement new fish creation
+        return child;
+    }
     public boolean eat(Organism fish) {
         /**
          * The fish tries to eat.
