@@ -1,6 +1,8 @@
 package models;
 
-public abstract class Fish extends Organism{
+import interfaces.Sexual;
+
+public abstract class Fish extends Organism implements Sexual {
 
     //Attributes
     private final int BITE_DAMAGE = 4;
