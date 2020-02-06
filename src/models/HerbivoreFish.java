@@ -14,7 +14,7 @@ public class HerbivoreFish extends Fish{
 
     @Override
     public String toString() {
-        return HERBI_FISH_EMOJI+" "+getName()+" "+
+        return HERBI_FISH_EMOJI+getLifeSymbol()+" "+getName()+" "+
                 getSex() + super.toString() + " Race "+race.toString();
     }
 

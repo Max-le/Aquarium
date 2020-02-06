@@ -11,10 +11,13 @@ public class CarnivoreFish extends Fish {
         super(name, age, sexuality);
         this.race = CarniRace.THON;
     }
+    public CarnivoreFish(String name){
+        this(name, 0, Sexuality.FIXED);
+    }
 
     @Override
     public String toString() {
-        return CARNI_FISH_EMOJI+" "+getName()+" "+
+        return CARNI_FISH_EMOJI+getLifeSymbol()+" "+getName()+" "+
                 getSex() + super.toString() + "of race "+race.toString();
     }
 

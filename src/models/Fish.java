@@ -16,7 +16,7 @@ public abstract class Fish extends Organism{
     //Constructor
     public Fish(String name, int age, Sexuality sexuality) {
         this.name = name;
-        this.age = age;
+        setAge(age);
         this.sexuality = sexuality;
         this.sex = "MALE";
     }
@@ -74,7 +74,5 @@ public abstract class Fish extends Organism{
         return hp < HUNGER_LIMIT;
     }
     //Endregion
-
-
 }
 

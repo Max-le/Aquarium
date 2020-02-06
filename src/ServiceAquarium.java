@@ -6,6 +6,8 @@ import models.Weed;
 import java.util.List;
 
 public class ServiceAquarium {
+
+    //TODO : Faire une classe statique : singleton
     public static void printPopulation(Aquarium aquarium){
         System.out.printf("Population of %s @ day %d: \n", aquarium.getName(), aquarium.getCurrentDay());
         for (Organism o : aquarium.getPopulation()) {

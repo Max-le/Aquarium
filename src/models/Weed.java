@@ -3,14 +3,14 @@ package models;
 public class Weed extends Organism {
     private final String WEED_EMOJI = "\uD83C\uDF43";
     public Weed(){
-        this.age = 0;
+        setAge(0);
     }
     public Weed(int age) {
-        this.age = age;
+        setAge(0);
     }
 
     @Override
     public String toString() {
-        return WEED_EMOJI+" "+super.toString();
+        return WEED_EMOJI+ getLifeSymbol()+" "+super.toString();
     }
 }
