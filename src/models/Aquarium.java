@@ -100,6 +100,7 @@ public class Aquarium {
         mealTimeFishs();
         populationReproduce();
         populationGrowsOld();
+        cleanDead();
         day++;
     }
 
@@ -123,7 +124,9 @@ public class Aquarium {
          * Fishs need to copulate.
          */
 
-
+    }
+    private void cleanDead(){
+        population.removeIf(o -> !o.isAlive());
     }
 
     public Fish getRandomFish() {

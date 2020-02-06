@@ -33,6 +33,11 @@ public class ServiceAquarium {
             System.out.println("\t" + weed.toString());
         }
     }
+    public  static  void printDead(List<Organism> oList){
+        for (Organism o : oList){
+            if (!o.isAlive()) System.out.println(o.toString());
+        }
+    }
 
 
 //    print static void printRandomFish(Aquarium aqua){

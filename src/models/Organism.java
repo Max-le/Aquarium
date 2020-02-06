@@ -18,10 +18,8 @@ public abstract   class Organism {
     }
 
     public void loseHp(int hp){
-        if (hp > 0){
-            this.hp-= hp;
-        }
-        if (hp<= 0){
+        this.hp -= hp;
+        if (this.hp <= 0){
             dies();
         }
     }
