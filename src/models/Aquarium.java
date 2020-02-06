@@ -103,6 +103,12 @@ public class Aquarium {
         day++;
     }
 
+    private void populationGrowsOld() {
+        for (Organism o : population){
+            o.growOld();
+        }
+    }
+
     private void hungerHurts() {
         /**
          * Every fish loses HP due to hunger.

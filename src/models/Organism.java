@@ -2,8 +2,8 @@ package models;
 
 public abstract   class Organism {
     private final int MAX_HEALTH  = 10;
-    int hp ; //Health points
-    int age;
+    public int hp ; //Health points
+    public int age;
     private boolean isAlive;
 
 
@@ -23,8 +23,16 @@ public abstract   class Organism {
         }
         if (this.hp > MAX_HEALTH) this.hp = MAX_HEALTH;
     }
+    public void growOld(){
+        age++;
+    }
+
     public void dies(){
         isAlive = false;
+    }
+
+    public int getAge(){
+        return age;
     }
     public boolean isAlive(){return isAlive;}
     @Override
