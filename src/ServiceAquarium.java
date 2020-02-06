@@ -7,9 +7,9 @@ import java.util.List;
 
 public class ServiceAquarium {
     public static void printPopulation(Aquarium aquarium){
-        System.out.printf("Population of %s : \n", aquarium.getName());
+        System.out.printf("Population of %s @ day %d: \n", aquarium.getName(), aquarium.getCurrentDay());
         for (Organism o : aquarium.getPopulation()) {
-            System.out.println("\t• "+o.toString());
+            System.out.println("\t"+o.toString());
         }
     }
     public  static void printNumberWeeds(Aquarium aquarium) {
@@ -28,7 +28,7 @@ public class ServiceAquarium {
     public static void printListWeeds(List<Weed> weeds){
         System.out.println("LIST OF weeds :\n---------------- ");
         for (Weed weed : weeds) {
-            System.out.println("\t\uD83C\uDF43 " + weed.toString());
+            System.out.println("\t" + weed.toString());
         }
     }
 

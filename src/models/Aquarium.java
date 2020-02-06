@@ -10,12 +10,14 @@ public class Aquarium {
     private List<Organism> population ;
     private int capacity;
     private String name;
+    private int day;
 
     //region Constructor
     public Aquarium(String name, int capacity) {
        population = new ArrayList<Organism>();
        this.capacity = capacity;
        this.name = name;
+       day = 1;
     }
     //endregion
 
@@ -81,9 +83,13 @@ public class Aquarium {
             else{
                 fish.eat(getRandomWeed());
             }
-
         }
     }
+
+    public int getCurrentDay() {
+        return day;
+    }
+
     //endregion
     public void nextTurn(){
         /**
@@ -93,6 +99,7 @@ public class Aquarium {
         hungerHurts();
         mealTimeFishs();
         populationReproduce();
+        day++;
 
 
 
@@ -103,12 +110,16 @@ public class Aquarium {
         /**
          * Every fish loses HP due to hunger.
          */
+        for (Fish fish : getFishs()){
+            fish.loseHp(1);
+        }
     }
     private void populationReproduce(){
 
     }
 
     public Fish getRandomFish() {
+        //TODO : Refactor GetRandomWeed() and GetRandomWish() into one method redundancy
         Random r = new Random();
         int max =  getFishs().size();
         int index = r.nextInt(max);

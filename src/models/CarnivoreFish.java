@@ -14,7 +14,7 @@ public class CarnivoreFish extends Fish {
 
     @Override
     public String toString() {
-        return "I'm an carnivore fish ! "+getName()+" "+
+        return CARNI_FISH_EMOJI+" "+getName()+" "+
                 getSex() + super.toString() + "of race "+race.toString();
     }
 

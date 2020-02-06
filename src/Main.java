@@ -13,11 +13,9 @@ public class Main {
         aqua1.addOrganism(new Weed());
         aqua1.addOrganism(new Weed(2));
         ServiceAquarium.printPopulation(aqua1);
-        ServiceAquarium.printNumberWeeds(aqua1);
-        ServiceAquarium.printNumberFishs(aqua1);
-        ServiceAquarium.printListFishs(aqua1.getFishs());
-        ServiceAquarium.printListWeeds(aqua1.getWeeds());
-        aqua1.nextTurn();
-        ServiceAquarium.printPopulation(aqua1);
+        while (aqua1.getCurrentDay() < 10){
+            aqua1.nextTurn();
+            ServiceAquarium.printPopulation(aqua1);
+        }
     }
 }

@@ -14,13 +14,22 @@ public class HerbivoreFish extends Fish{
 
     @Override
     public String toString() {
-        return "I'm an herbivore fish ! "+getName()+" "+
+        return HERBI_FISH_EMOJI+" "+getName()+" "+
                 getSex() + super.toString() + " Race "+race.toString();
     }
 
     @Override
     public boolean eat(Organism o) {
-        return false;
+        boolean hasEaten = false;
+        if (isHungry()){
+            Weed w = (Weed) o;
+            if (targetFood == null) {
+                targetFood = w;
+            }
+            targetFood.loseHp(2);
+            hasEaten=true;
+        }
+    return hasEaten;
     }
 
 

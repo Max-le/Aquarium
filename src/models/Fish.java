@@ -9,6 +9,8 @@ public abstract class Fish extends Organism{
     private Sexuality sexuality;
     private String sex;
     public Organism targetFood;
+    public final String HERBI_FISH_EMOJI = "\uD83D\uDC1F";
+    public final String CARNI_FISH_EMOJI = "\uD83E\uDD88";
 
 
     //Constructor
