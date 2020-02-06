@@ -30,9 +30,10 @@ public class CarnivoreFish extends Fish {
             if( targetFood == null){
                 //Assign new target.
                 this.targetFood = fish;
-                targetFood.loseHp(4);
-                hasEaten = true;
             }
+            targetFood.loseHp(4);
+            gainHp(5);
+            hasEaten = true;
         }
         return hasEaten;
     }

@@ -99,11 +99,8 @@ public class Aquarium {
         hungerHurts();
         mealTimeFishs();
         populationReproduce();
+        populationGrowsOld();
         day++;
-
-
-
-
     }
 
     private void hungerHurts() {
@@ -115,6 +112,11 @@ public class Aquarium {
         }
     }
     private void populationReproduce(){
+        /**
+         * Weeds reproduce by spliting themselves.
+         * Fishs need to copulate.
+         */
+
 
     }
 

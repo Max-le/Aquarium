@@ -27,6 +27,7 @@ public class HerbivoreFish extends Fish{
                 targetFood = w;
             }
             targetFood.loseHp(2);
+            gainHp(3);
             hasEaten=true;
         }
     return hasEaten;
