@@ -18,11 +18,15 @@ public class Weed extends Organism implements Asexual {
 
     @Override
     public Weed[] createChild() {
+        //Returns two children if parent weed is mature
+        Weed[] children = new Weed[2];
         if (hp >=10){
-            Weed[] children = new Weed[2];
             hp /= 2;
+            for (int i = 0; i < children.length - 1; i++) {
+                Weed baby = new Weed();
+                children[i] = baby;
+            }
         }
-
          return children;
     }
 }
