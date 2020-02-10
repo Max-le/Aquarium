@@ -1,14 +1,24 @@
 package models;
 
 public class HerbivoreFish extends Fish{
-    public enum  HerbiRace {
-        SOLE, BAR, CARPE
+
+    @Override
+    public Fish createChild(Fish mate) {
+        return null;
+    }
+
+    private enum HerbiRace{
+        CARPE, BAR, SOLE
     }
 
     private HerbiRace race;
 
-    public HerbivoreFish(String name, int age, Sexuality sexuality){
-        super(name, age, sexuality);
+    public String getRace(){
+        return this.race.toString();
+    }
+
+    public HerbivoreFish(String name, int age, String sex){
+        super(name, age, sex);
         this.race = HerbiRace.SOLE;
     }
 

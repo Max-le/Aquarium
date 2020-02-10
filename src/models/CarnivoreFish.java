@@ -1,18 +1,24 @@
 package models;
 
+import java.util.Random;
+
 public class CarnivoreFish extends Fish {
 
-    private CarniRace race;
-    public enum CarniRace {
+
+    private enum CarniRace{
         THON, MEROU, CLOWN
     }
 
-    public CarnivoreFish(String name, int age, Sexuality sexuality){
-        super(name, age, sexuality);
-        this.race = CarniRace.THON;
+    private CarniRace race;
+
+    public String getRace(){
+        return this.race.toString();
     }
-    public CarnivoreFish(String name){
-        this(name, 0, Sexuality.FIXED);
+
+
+    public CarnivoreFish(String name, int age, String sex){
+        super(name, age, sex);
+        this.race = CarniRace.THON;
     }
 
     @Override
@@ -21,17 +27,13 @@ public class CarnivoreFish extends Fish {
                 getSex() + super.toString() + "of race "+race.toString();
     }
 
-    public Fish createChild(Fish mate){
-        Fish child = null;
-        //TODO Implement new fish creation
-        return child;
-    }
-    public boolean eat(Organism fish) {
+
         /**
          * The fish tries to eat.
          * @param fish fish that will be used as new target if the eater has currently no target.
          * @return true if the fish ate something, false otherwise.
          */
+    public boolean eat(Organism fish) {
         boolean hasEaten = false;
         if (isHungry()){
             if( targetFood == null){

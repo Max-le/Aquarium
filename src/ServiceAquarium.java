@@ -1,13 +1,21 @@
-import models.Aquarium;
-import models.Fish;
-import models.Organism;
-import models.Weed;
+import models.*;
 
 import java.util.List;
 
 public class ServiceAquarium {
 
     //TODO : Faire une classe statique : singleton
+
+
+    public static void printAquaStats(Aquarium aquarium){
+        Fish f = new CarnivoreFish("EmojiGetter",0,"MALE");
+        Weed w = new Weed();
+        System.out.printf("Stats of population : %s/%s x %d  %s x %d\n",
+                f.CARNI_FISH_EMOJI, f.HERBI_FISH_EMOJI,
+                aquarium.countFish(),
+                w.WEED_EMOJI, aquarium.countWeeds());
+    }
+
     public static void printPopulation(Aquarium aquarium){
         System.out.printf("Population of %s @ day %d: \n", aquarium.getName(), aquarium.getCurrentDay());
         for (Organism o : aquarium.getPopulation()) {

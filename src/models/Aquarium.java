@@ -1,6 +1,11 @@
 package models;
 
+import interfaces.Asexual;
+import interfaces.Sexual;
+
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -23,7 +28,14 @@ public class Aquarium {
 
     //region Methods
     public void addOrganism(Organism newcomer){
-        population.add(newcomer);
+        if (population.size() < capacity && newcomer !=null){
+            population.add(newcomer);
+        }
+    }
+    public void addOrganisms(Organism... newcomers){
+        for (Organism newcomer : newcomers){
+                addOrganism(newcomer);
+        }
     }
 
     //region Getters
@@ -37,17 +49,18 @@ public class Aquarium {
         }
         return numberWeeds;
     }
+
+    /**
+     * Returns a COPY of the population
+     */
     public List<Organism> getPopulation(){
-        /**
-         * Returns a COPY of the population
-         */
         List<Organism> copy = new ArrayList<>(this.population);
         return copy;
     }
+    /**
+     * Renvoie une liste contenant l'ensemble des poissons de l'aquarium.
+     */
     public List<Fish> getFishs(){
-        /**
-         * Renvoie une liste contenant l'ensemble des poissons de l'aquarium.
-         */
         List<Fish> fishs = new ArrayList<>();
         for (Organism o : population){
             if (o instanceof Fish) fishs.add((Fish) o);
@@ -91,10 +104,11 @@ public class Aquarium {
     }
 
     //endregion
+
+    /**
+     * Fait s'écouler un tour ; exécute une action sur chaque organisme dans la population.
+     */
     public void nextTurn(){
-        /**
-         * Fait s'écouler un tour ; exécute une action sur chaque organisme dans la population.
-         */
         growWeeds();
         hungerHurts();
         mealTimeFishs();
@@ -118,12 +132,29 @@ public class Aquarium {
             fish.loseHp(1);
         }
     }
-    private void populationReproduce(){
-        /**
-         * Weeds reproduce by spliting themselves.
-         * Fishs need to copulate.
-         */
 
+    /**
+     * Weeds reproduce by spliting themselves.
+     * Fishs need to copulate.
+     */
+    private void populationReproduce(){
+        ArrayList<Organism> newcomers = new ArrayList<>();
+        for (Organism o : population){
+            Organism child = null;
+            if (o instanceof Fish){
+                Sexual fish = (Fish)o;
+                child = fish.createChild(getRandomFish());
+                newcomers.add(child);
+            }
+            else if (o instanceof Weed) {
+                Asexual weed = (Weed)o;
+                Weed[] children = weed.createChild();
+                newcomers.addAll(Arrays.asList(children));
+            }
+        }
+        for (Organism o : newcomers){
+            addOrganism(o);
+        }
     }
     private void cleanDead(){
         population.removeIf(o -> !o.isAlive());

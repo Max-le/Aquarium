@@ -3,7 +3,7 @@ package models;
 import interfaces.Asexual;
 
 public class Weed extends Organism implements Asexual {
-    private final String WEED_EMOJI = "\uD83C\uDF43";
+    public final String WEED_EMOJI = "\uD83C\uDF43";
     public Weed(){
         setAge(0);
     }
