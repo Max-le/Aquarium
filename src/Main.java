@@ -3,6 +3,7 @@ import models.*;
 public class Main {
 
     public static void main(String[] args) {
+        ServiceAquarium serviceAquarium = ServiceAquarium.getInstance();
         Aquarium aqua1 = new Aquarium("Aqualand",100 );
         aqua1.addOrganism(new HerbivoreFish("Patricia", 3, "FEMALE"));
         aqua1.addOrganism(new HerbivoreFish("Jasmina", 18,"FEMALE"));
@@ -20,7 +21,7 @@ public class Main {
 
         while (aqua1.getCurrentDay() < 22){
             System.out.println("Day "+aqua1.getCurrentDay());
-            ServiceAquarium.printPopulation(aqua1);
+            serviceAquarium.printPopulation(aqua1);
             aqua1.nextTurn();
         }
     }
