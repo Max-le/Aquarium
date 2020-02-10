@@ -1,6 +1,6 @@
 package models;
 
-public abstract   class Organism {
+public abstract  class Organism {
     private final int MAX_HEALTH  = 10;
     public int hp ; //Health points
     private int age;

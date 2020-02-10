@@ -3,14 +3,12 @@ package models;
 import interfaces.Asexual;
 import interfaces.Sexual;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
 public class Aquarium {
-
 
     private List<Organism> population ;
     private int capacity;
