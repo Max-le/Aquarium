@@ -5,8 +5,6 @@ import java.util.List;
 public class ServiceAquarium {
 
     //TODO : Faire une classe statique : singleton
-
-
     public static void printAquaStats(Aquarium aquarium){
         Fish f = new CarnivoreFish("EmojiGetter",0,"MALE");
         Weed w = new Weed();
