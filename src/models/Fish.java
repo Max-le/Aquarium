@@ -15,8 +15,20 @@ public abstract class Fish extends Organism implements Sexual {
     public Organism targetFood;
     public final String HERBI_FISH_EMOJI = "\uD83D\uDC1F";
     public final String CARNI_FISH_EMOJI = "\uD83E\uDD88";
-    //endregion
 
+    private AquaLogger subscriber;
+
+    public void addSubscriber(AquaLogger listener){
+        subscriber = listener;
+    }
+
+
+    //endregion
+    public void notifySubscriber(String msg)
+    {
+        if (subscriber != null)  subscriber.update(msg);
+
+    };
 
     //Constructor
     public Fish(String name, int age, String sex) {
@@ -77,6 +89,7 @@ public abstract class Fish extends Organism implements Sexual {
                 child = new CarnivoreFish(childName,0, childSex);
             }
         }
+        if (child != null) notifySubscriber( child.toString()+" is born !");
         return child;
     }
 
