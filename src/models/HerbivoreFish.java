@@ -1,28 +1,15 @@
 package models;
 
-public class HerbivoreFish extends Fish{
+import utils.EmojiCodes;
 
+public abstract class HerbivoreFish extends Fish{
 
-
-    private enum HerbiRace{
-        CARPE, BAR, SOLE
+    public HerbivoreFish(String name) {
+        super(name);
     }
 
-    private HerbiRace race;
-
-    public String getRace(){
-        return this.race.toString();
-    }
-
-    public HerbivoreFish(String name, int age, String sex){
-        super(name, age, sex);
-        this.race = HerbiRace.SOLE;
-    }
-
-    @Override
-    public String toString() {
-        return HERBI_FISH_EMOJI+getLifeSymbol()+" "+getName()+" "+
-                getSex() + super.toString() + " Race "+race.toString();
+    public HerbivoreFish(String name, String sex) {
+        super(name, sex);
     }
 
     @Override
@@ -40,5 +27,8 @@ public class HerbivoreFish extends Fish{
     return hasEaten;
     }
 
-
+    @Override
+    public String toString() {
+        return EmojiCodes.HERBIVORE.code()+" "+super.toString();
+    }
 }
