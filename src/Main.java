@@ -4,6 +4,7 @@ public class Main {
 
     public static void main(String[] args) {
         ServiceAquarium serviceAquarium = ServiceAquarium.getInstance();
+
         Aquarium aqua1 = new Aquarium("Aqualand",100 );
         aqua1.addOrganism(new HerbivoreFish("Patricia", 3, "FEMALE"));
         aqua1.addOrganism(new HerbivoreFish("Jasmina", 18,"FEMALE"));

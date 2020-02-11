@@ -2,10 +2,7 @@ package models;
 
 public class HerbivoreFish extends Fish{
 
-    @Override
-    public Fish createChild(Fish mate) {
-        return null;
-    }
+
 
     private enum HerbiRace{
         CARPE, BAR, SOLE

@@ -10,7 +10,6 @@ public class ServiceAquarium {
      synchronized public static ServiceAquarium getInstance() {
         if (instance == null )
             instance = new ServiceAquarium();
-         System.out.println("Singleton loaded ! ");
         return instance;
     }
 
