@@ -13,8 +13,8 @@ public abstract class Fish extends Organism implements Sexual {
     private Sexuality sexuality;
     private String sex;
     public Organism targetFood;
-    public final String HERBI_FISH_EMOJI = "\uD83D\uDC1F";
-    public final String CARNI_FISH_EMOJI = "\uD83E\uDD88";
+    public final String HERBI_FISH_EMOJI = "\u001B[34m" + "\uD83D\uDC1F" + "\u001B[0m";
+    public final String CARNI_FISH_EMOJI = "\u001B[31m"+ "\uD83E\uDD88" + "\u001B[0m";
 
     private AquaLogger subscriber;
 

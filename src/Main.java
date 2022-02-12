@@ -1,8 +1,10 @@
 import models.*;
 
+import java.util.concurrent.TimeUnit;
+
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         ServiceAquarium serviceAquarium = ServiceAquarium.getInstance();
         Aquarium aqua1 = new Aquarium("Aqualand",100 );
         aqua1.addOrganism(new HerbivoreFish("Patricia", 3, "FEMALE"));
@@ -17,7 +19,7 @@ public class Main {
         aqua1.addOrganism(new Weed(2));
 
         AquaLogger logger = new AquaLogger();
-        aqua1.getFishs().stream().forEach(fish -> fish.addSubscriber(logger));
+        aqua1.getFishs().forEach(fish -> fish.addSubscriber(logger));
 
         while (aqua1.getCurrentDay() < 22){
             System.out.println("Day "+aqua1.getCurrentDay());
